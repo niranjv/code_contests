@@ -24,6 +24,8 @@ def get_index_closing_parenthesis(s, idx_open):
         if counter == 0:
             return i
 
+    raise Exception("No matching closing parenthesis found!")
+
 
 if __name__ == "__main__":
 
