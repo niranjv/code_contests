@@ -13,7 +13,6 @@ class ListNode(object):
         self.val = x
         self.next = None
 
-
     def __str__(self):
         return 'Node [{}, {}]'.format(self.val, self.next)
 
@@ -65,8 +64,6 @@ if __name__ == "__main__":
     l2 = ListNode(5)
     l2.next = ListNode(5)
     # l2.next.next = ListNode(2)
-
-
 
     result = o.addTwoNumbers(l1, l2)
     print(result)

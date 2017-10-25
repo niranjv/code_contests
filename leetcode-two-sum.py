@@ -24,10 +24,11 @@ class Solution:
                 d[n] = i
 
 
+if __name__ == "__main__":
 
-nums = [1,2,3,4,5,6,7,8,9,10]
-target = 15
+    nums = [1,2,3,4,5,6,7,8,9,10]
+    target = 15
 
-o = Solution()
-result = o.twoSum(nums, target)
-print(result)
+    o = Solution()
+    result = o.twoSum(nums, target)
+    print(result)
