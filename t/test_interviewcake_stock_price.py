@@ -1,5 +1,5 @@
 import pytest
-import interviewcake_stock_price
+import interviewcake_stock_price # Module in parent dir found via $PYTHONPATH
 
 def test_get_max_profit():
 
