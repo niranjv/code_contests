@@ -19,13 +19,13 @@ from functools import reduce
 
 def get_products_of_all_ints_except_at_index(nums):
     """
-    As we loop through array, calculate before_product from both ends in the same iteration to get O(n) time complexity
-    Complexity: O(n) time (to loop thru array ONCE & make 4 multiplications per iteration); O(n) space (for final list of products)
+    As we loop through input list, calculate before_product from both ends in the same iteration to get O(n) time complexity
+    Complexity: O(n) time (to loop thru list ONCE & make 4 multiplications per iteration); O(n) space (for final list of products)
     """
 
     n = len(nums) 
     last_index = n - 1
-    if n < 2: raise Exception("Need at least 2 numbers in the input array")
+    if n < 2: raise Exception("Need at least 2 numbers in the input list")
 
     result = [None] * n
     before_prod = reverse_before_prod = 1
