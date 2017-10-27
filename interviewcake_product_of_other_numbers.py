@@ -20,7 +20,7 @@ from functools import reduce
 def get_products_of_all_ints_except_at_index(nums):
     """
     As we loop through array, calculate before_product from both ends in the same iteration to get O(n) time complexity
-    Complexity: O(n) time (to loop thru array & make 4 multiplications per iteration); O(n) space (for final list of products)
+    Complexity: O(n) time (to loop thru array ONCE & make 4 multiplications per iteration); O(n) space (for final list of products)
     """
 
     n = len(nums) 
