@@ -19,8 +19,15 @@ from functools import reduce
 
 def get_products_of_all_ints_except_at_index(nums):
     """
-    As we loop through input list, calculate before_product from both ends in the same iteration to get O(n) time complexity
-    Complexity: O(n) time (to loop thru list ONCE & make 4 multiplications per iteration); O(n) space (for final list of products)
+    :type nums: list of ints
+
+    Method:
+    - Loop through input list & calculate before_product from both ends in the same iteration
+    - Multiply before [after] product with existing after [before] product already in the result list to get final product
+
+    Complexity: 
+    - Time: O(n) to loop thru list ONCE & make 4 multiplications per iteration
+    - Space: O(n) to store final list of products
     """
 
     n = len(nums) 
