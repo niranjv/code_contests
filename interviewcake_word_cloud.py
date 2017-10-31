@@ -18,10 +18,22 @@ import operator
 
 def get_word_counts(s):
     """
-    * Exclude all punctuation surrounding a word
-    * Use lowercase words only even if word only appears in uppercase in string
-    * This methods gives O(n) time solution. Alternative method of using split() & then checking each word gives O(n2) time solution
+    :type s: string
+
+    Method:
+    - Loop over all characters in the string to construct a word stripped of its punctuation
+    - Retained hyphenated words
+    - Convert all words to lowercase even if they appear only in uppercase in string
+    - Note:
+        - Alternative method of using split() & then checking each word gives O(n2) time complexity solution
+        - Subject to integer overflow if a word appears a very large number of times in the string
+
+    Complexity:
+    - Time: O(n) since we loop over the string once
+    - Space: O(k) where k is the number of unique words in the string
     """
+
+    if len(s) == 0: raise ValueError("String must have at least 1 character")
 
     word_counts = {}
 
@@ -43,14 +55,15 @@ def get_word_counts(s):
             if c == '-':
                 if s[i-1].isalpha() and s[i+1].isalpha():
                     print("Found - as part of hyphenated word")
+                    cur_word_length += 1
                     continue
 
-            # this can happen if the last char is a punctutation
+            # cur_word_index can be None if last char is a punctutation
             if cur_word_index is not None:
                 word = s[cur_word_index:cur_word_index+cur_word_length]
                 word = word.lower()
                 
-                # will result in single letter words like s resulting from possessive 's
+                # will result in single letter words like s resulting from possessive 's but will include words like "a" & "i"
                 if word in word_counts:
                     word_counts[word] += 1
                 else:
@@ -61,24 +74,13 @@ def get_word_counts(s):
 
 
     # Add last word
-    word = s[cur_word_index:cur_word_index+cur_word_length]
-    word = word.lower()
+    if cur_word_index is not None:
+        word = s[cur_word_index:cur_word_index+cur_word_length]
+        word = word.lower()
 
-    if word in word_counts:
-        word_counts[word] += 1
-    else:
-        word_counts[word] = 1
+        if word in word_counts:
+            word_counts[word] += 1
+        else:
+            word_counts[word] = 1
 
     return word_counts
-
-
-
-if __name__ == "__main__":
-
-    s = "We came, we saw, we conquered...then we ate Bill's (Mille-Feuille) cake.The bill came to five dollars. Last"
-    word_counts = get_word_counts(s)
-    sorted_words = sorted(word_counts.items(), key=operator.itemgetter(1), reverse=True)
-    
-    for i in sorted_words:
-        print(i)
-
