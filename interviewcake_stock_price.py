@@ -18,7 +18,15 @@
 def get_max_profit(stock_prices):
     """
     :type stock_prices: list of real numbers representing price of a stock at a given minute in USD
-    Complexity: O(n) time; O(1) space
+
+    Method:
+    - Keep track of the lowest stock price so far (min_price)
+    - Calculate profit (max_profit) between current price & min_price
+    - Update max_profit and min_price in every iteration
+
+    Complexity: 
+    - Time: O(n) since we loop throughg the list only once
+    - Space: O(1) since we only store min_price & max_profit
     """
 
     if len(stock_prices) < 2: raise Exception("Need at least 2 prices for stock")
